@@ -1,0 +1,14 @@
+<%- include('partials/header') -%>
+<h1></h1>
+
+     <!-- <h2></h2> -->
+    <h2> <%= questiontitle %> </h2>
+    <form action="/answerquestion" method="post">
+    <div class="form-group">
+
+        <label >Write Your Answer Here</label><br>
+      <textarea class="form-control" name="questionanswer"  cols="30" rows="8"></textarea><br>
+      <button class="btn btn-primary" type="submit" >Publish</button>
+    </form>
+</div>
+<%- include('partials/footer') -%>

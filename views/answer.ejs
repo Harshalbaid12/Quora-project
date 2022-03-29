@@ -1,0 +1,7 @@
+<%- include('partials/header') -%>
+<h1>Answer a question following are the questions asked till now</h1>
+<% for(var i=0;i<questions.length;i++ ) {%>
+     <!-- <h2></h2> -->
+    <h2> <%= i+1 %>. <%= questions[i].title %> </h2><a href="/answerquestion/<%=questions[i].title%>"> &nbsp Answer this question </a>
+    <%}%>
+<%- include('partials/footer') -%>
