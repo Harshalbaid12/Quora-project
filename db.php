@@ -5,8 +5,8 @@ if(!$conn)
 {
     die("Connection failed");
 }
-else
- echo "Connection successfull";
+// else
+//  echo "Connection successfull";
 
 
 
