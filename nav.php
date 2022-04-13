@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/styles.css">
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <title>FC Quora for College</title>
@@ -24,13 +24,13 @@
             <a class="nav-link active" aria-current="page" href="home.php">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="askquestion.php">Ask Question</a>
+            <a class="nav-link active" href="askquestion.php">Ask Question</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link " href="answerquestion.php">Answer Question</a>
+            <a class="nav-link active" href="answerquestion.php">Answer Question</a>
           </li>
           <li class="nav-item dropdown ">
-            <a class="nav-link dropdown-toggle" href="#" id="dropdown05" data-bs-toggle="dropdown" aria-expanded="false">Sort</a>
+            <a class="nav-link active dropdown-toggle" href="#" id="dropdown05" data-bs-toggle="dropdown" aria-expanded="false">Sort</a>
             <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdown05">
               <li><a class="dropdown-item" href="#">Most Answered Questions</a></li>
               <li><a class="dropdown-item" href="#">Least Answered Questions</a></li>
@@ -38,7 +38,7 @@
             </ul>
           </li>
           <li class="nav-item dropdown ">
-            <a class="nav-link dropdown-toggle" href="#" id="dropdown06" data-bs-toggle="dropdown" aria-expanded="false">View</a>
+            <a class="nav-link active dropdown-toggle" href="#" id="dropdown06" data-bs-toggle="dropdown" aria-expanded="false">View</a>
             <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdown06">
               <li><a class="dropdown-item" href="#">My Answered Questions</a></li>
               <li><a class="dropdown-item" href="#">My Asked Questions</a></li>

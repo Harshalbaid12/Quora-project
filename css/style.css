@@ -1,0 +1,25 @@
+body {
+  background-image: url("images/Background1.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
+  justify-content: center;
+}
+.card {
+  width: 450px;
+  height: 400px;
+  background-color: #f5f5ef;
+  margin-top: 150px;
+  margin-left: 550px;
+  border-radius: 7px;
+  text-align: center;
+}
+
+.logo {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  position: absolute;
+  top: -50%;
+  left: calc(50%-50);
+}
