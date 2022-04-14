@@ -1,5 +1,4 @@
 <?php
-
  include("db.php");
  session_start();
 if(!isset($_SESSION['student']))
@@ -12,5 +11,6 @@ else
   echo "Welcome".$_SESSION['student'];
 
 }
+
 
 ?>

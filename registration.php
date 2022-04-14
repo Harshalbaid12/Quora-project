@@ -1,15 +1,19 @@
 <?php
-
+session_start();
 include("db.php");
 if(isset($_POST['submit']))
 {
-  $name = $_POST['name'];
+    $name = $_POST['name'];
 	$email = $_POST['email'];
-	$password = password_hash($_POST['password'],PASSWORD_BCRYPT);
+	$course = $_POST['course'];
+	$class = $_POST['class'];
+   
+   	$password = password_hash($_POST['password'],PASSWORD_BCRYPT);
   // echo "$password.<br>.$email.<br>.$name";
-  if(mysqli_query($conn,"insert into student(emailID,name,password,course,class) values('$email','$name','$password','new','notknown')"))
+  if(mysqli_query($conn,"insert into student(emailID,name,password,course,class) values('$email','$name','$password','$course','$class')"))
   {
      echo "Registered Successfully";
+     $_SESSION['student'] = $email;
      header("Location:home.php");
   }
   else{
@@ -64,7 +68,77 @@ if(isset($_POST['submit']))
                 <input type="text" id="name" name="name" class="form-control form-control-lg validate" onkeyup="validatename()" autocomplete ="off" required />
                 <span id="textname"></span>
                 </div>
-
+                
+                <div class="form-group">
+         			<label for="exampleFormControlSelect1">Course</label>
+    				<select name="course" class="form-control" id="exampleFormControlSelect1">
+     	 			<option>B.A Economics</option>
+      				<option>B.A English</option>
+      				<option>B.A French</option>
+      				<option>B.A German</option>
+      				<option>B.A Hindi</option>
+					  <option>B.A History</option>
+					  <option>B.A Marathi</option>
+					  <option>B.A Philosophy</option>  
+					  <option>B.A Sociology</option>
+					  <option>B.A Political Sci.</option>
+					  <option>B.A Sanskrit</option>
+					  <option>B.A Psychology</option>
+					  <option>BSc Animation</option>
+					  <option>BSc BioTech</option>
+					  <option>BSc Botany</option>  
+					  <option>BSc Chemistry</option>
+					  <option>BSc CS</option>
+					  <option>BSc Electronics</option>
+					  <option>BSc Environmental Sci.</option>
+					  <option>BSc Geology</option>
+					  <option>BSc Mathematics</option>  
+					  <option>BSc Microbiology</option>
+					  <option>BSc Organic Chemistry</option>
+					  <option>BSc Physics</option>
+					  <option>BSc Statistics</option>
+					  <option>BSc Zoology</option>
+					  <option>M.A Economics</option>  
+					  <option>M.A English</option>
+					  <option>M.A Marathi</option>
+					  <option>M.A Psychology</option>
+					  <option>MSc Analytical Chemistry</option>
+					  <option>MSc Biochemistry</option>
+					  <option>MSc Biotech</option>
+					  <option>MSc Botany</option>
+					  <option>MSc Computer Application</option>
+					  <option>MSc CS</option>
+					  <option>MSc Data Science</option>
+					  <option>MSc Electronic Science</option>
+					  <option>MSc Geology</option>
+					  <option>MSc IMCA</option>
+					  <option>MSc Organic Chemistry</option>
+					  <option>MSc Physics</option>
+					  <option>MSc Zoology</option>
+					  <option>Applied Statistics</option>
+					  <option>Geography(General Level)</option>
+					  <option>Mathematics(General Level)</option>
+					  <option>B.Voc. Media and Communication</option>
+					  <option>B.Voc. Digital Art & Animation</option>
+					  <option>B.Voc. Photography & Audio-Video Production</option>
+					  <option>Ph.D Botany</option>
+					  <option>Ph.D Electronics Science</option>
+					  <option>Ph.D English</option>
+					  <option>Ph.D Environmental Science</option>
+					  <option>Ph.D Geology</option>
+					  <option>Ph.D Physics</option>
+					  <option>Ph.D Zoology</option>
+    				</select>
+  				</div>
+                  <div class="form-group">
+    				<label for="exampleFormControlSelect2">Class</label>
+    				<select name="class" class="form-control" id="exampleFormControlSelect2">
+      				<option>First Year</option>
+      				<option>Second Year</option>
+      				<option>Third Year</option>
+      				<option>Last Year</option>
+   				    </select>
+  				</div>
                 <div class="form-outline mb-4">
                 <label class="form-label" for="email">Your Email</label>
                 <input type="email" id="email" name="email" class="form-control form-control-lg" autocomplete ="off" required onkeyup="validateemail()" />
@@ -103,110 +177,6 @@ if(isset($_POST['submit']))
   </div>
   </section>
 </body>
-<script>
-  var check1 = false;
-  var check2 = false;
-  var check3 = false;
-  var check4 = false;
- 
-  function validatename()
-  {
-    var name = document.getElementById("name").value;
-    var text = document.getElementById("textname");
-    var namereg = /^[A-Za-z\s]+$/;
-    if(name.match(namereg))
-    {
-      text.innerHTML = "Valid Name";
-      text.style.color = "green";
-      check4 = true;
-    }
-    else
-    {
-      text.innerHTML = "Please enter valid name";
-      text.style.color = "red";
-      check4 = false;
-    }
-  }
-
-
-
-  function validateemail() {
-    var mail = document.getElementById("email").value;
-    var text = document.getElementById("textemail");
-
-      var regex = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
-    if (mail.match(regex)) 
-    {
-      text.innerHTML = "Valid Email id";
-      text.style.color = "green";
-      check1 = true;
-
-    }
-    else 
-    {
-      
-      text.innerHTML = "Please enter valid email id";
-      text.style.color = "red";
-      check1 = false;
-    }
-    formvalidator();
-  }
-
-  function validatepassword()
-  {
-    var password = document.getElementById("password").value;
-    var text = document.getElementById("textpassword");
-    
-    if(password.length >= 7)
-    {
-      text.innerHTML = "Valid  Password";
-      text.style.color = "green";
-      check2 =  true;
-    }
-    else
-    {
-      text.innerHTML = "Password must be more than 8 chars" ;
-      text.style.color = "red";
-      check2 = false;
-    }
-    formvalidator();
-  }
-
- function validateconfirm()
- {
-    var confirmpassword = document.getElementById("confirmpassword").value;
-    var password = document.getElementById("password").value;
-    var text = document.getElementById("textconfirm");
-    console.log(confirmpassword);
-    console.log(password);
-     if(confirmpassword == password)
-     {
-      text.innerHTML = "Password Matches";
-      text.style.color = "green";
-      check3 =  true;
-     }
-
-     else
-     {
-      text.innerHTML = "Password Doesn't Matches";
-      text.style.color = "red";
-      check3 = false;
-     }
-   formvalidator();
- }
-
- function formvalidator()
- {
-      if(check1 && check2 && check3 && check4)
-      {
-         document.getElementById("submitbutton").disabled = false;
-         
-      }
-     
- }
-
-
-
-</script>
+<script src="js/validation.js"></script>
 
 </html>

@@ -1,4 +1,4 @@
-body {
+/* body {
   background-image: url("images/Background1.jpg");
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -22,4 +22,10 @@ body {
   position: absolute;
   top: -50%;
   left: calc(50%-50);
+} */
+
+#msg{
+  color: red;
+  text-align: center;
 }
+

@@ -1,3 +1,42 @@
+<?php
+
+include("db.php");
+session_start();
+$msg="";
+ if(isset($_POST['submit']))
+ {
+ 	 $email = $_POST['email'];
+  	 $password = $_POST['password'];
+	 $query = "select password from student where emailID='$email'";
+	 $queryy = mysqli_query($conn,$query);
+	 if(mysqli_num_rows($queryy) != 0)
+	 {
+		 echo "chalo email hai teri ";
+		//  $passwordcheck = mysqli_query($conn,$query);
+		 $row = mysqli_fetch_row($queryy);
+		 if(password_verify($password,$row[0]))
+		 {
+			 //echo "Dono sahi hai tere acha hai";
+			 $msg = "";
+			 $_SESSION['student'] = $email;
+			 header("Location:home.php");
+		 }
+		 else
+		 {
+			 //echo "Bhai password yaad kar ";
+			 $msg="Incorrect Password";
+		 }
+		//  if()
+	 }
+	 else{
+		 //echo "Email nai hai bhai teri";
+		 $msg = "Email Doesn't Exists";
+	 }
+
+ }
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,6 +47,7 @@
   <title>Login</title>
 
   <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+  <link rel="stylesheet" href="css/style.css">
 
   <style>
     body {
@@ -21,7 +61,7 @@
 
 <body>
   <!-- <section class="vh-100 bg-image" style="img src="Background1.jpg"> -->
-  <div class="mask d-flex align-items-center h-100 gradient-custom-3">
+  <div class="mask d-flex align-items-center h-80 gradient-custom-3">
     <div class="container h-100">
       <div class="row d-flex justify-content-center align-items-center h-100">
         <div class="col-12 col-md-5 col-lg-5 col-xl-6 mt-5">
@@ -31,27 +71,30 @@
                 Sign in to your account
               </h2>
 
-              <form>
+              <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>" method="post">
 
 
                 <div class="form-outline mb-4">
-                  <label class="form-label" for="form3Example3cg"> Email</label>
-                  <input type="email" id="form3Example3cg" class="form-control form-control-lg" autocomplete ="off" required />
+                  <label class="form-label" for="email"> Email</label>
+                  <input type="email" id="email" name="email" class="form-control form-control-lg" autocomplete ="off" onkeyup="validateemail()" required />
+                  <span id="textemail"></span>
                 </div>
 
                 <div class="form-outline mb-4">
-                  <label class="form-label" for="form3Example4cg">Password</label>
-                  <input type="password" id="password" class="form-control form-control-lg" autocomplete ="off" required />
+                  <label class="form-label" for="password">Password</label>
+                  <input type="password" id="password" name="password" class="form-control form-control-lg" autocomplete ="off" onkeyup="validatepassword()" required />
+                  <span id="textpassword"></span>
                 </div>
 
 
 
                 <div class="d-flex justify-content-center">
-                  <button type="submit" class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">
+                  <button type="submit" name="submit" value="1" id="submit" class="btn btn-success btn-block btn-lg gradient-custom-4 text-body" disabled>
                     Login
-                  </button>
+                  </button> <br>
+				  
                 </div>
-
+				<p id="msg" class="text-center"><?php echo $msg;?></p>
                 <p class="text-center text-muted mt-3 mb-0">
                   Don't have account?
                   <a href="registration.php" class="fw-bold text-body"><u>Register here</u></a>
@@ -65,5 +108,5 @@
   </div>
   </section>
 </body>
-
+<script src="js/validation.js"></script>
 </html>
