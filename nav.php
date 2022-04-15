@@ -4,6 +4,31 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <script>
+        window.onload = function(){
+          document.getElementById("loader").style.display="none";
+          document.getElementById('content').style.display="block";
+        };
+    </script>
+    <style>
+      #content
+      {display:none;}
+      #loader{
+        margin:auto;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height:300px;
+    width:300px;
+      }
+      #loader img{
+        
+     
+        width:300px
+      }
+    </style> -->
     
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
@@ -12,7 +37,14 @@
     <link rel="stylesheet" href="css/style.css">
     <title>FC Quora for College</title>
 </head>
+
 <body>
+
+  <!-- <div id="loader">
+    <img src="images/loader.gif" alt="">
+  </div> -->
+
+  <!-- <div id="content"> -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark" aria-label="Fifth navbar example">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">Quora For College</a>

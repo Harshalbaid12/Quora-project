@@ -26,10 +26,11 @@ if(!isset($_SESSION['student']))
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/home.css">
  
 </head>
 <body>
-<div class="container">
+<div class="container mb-4">
         <h2 class="mt-4"><?php echo $msg;?></h2>
     <?php 
      
@@ -39,7 +40,7 @@ if(!isset($_SESSION['student']))
      //print_r($rows); 
      
      for($i=0;$i<sizeof($rows);$i++){?>
-         <div class="card" style="width: 100%;">
+         <div class="card" style="width: 100%;" >
              <div class="card-body">
                 <p class="card-text">Posted by <?php $allemails =  $rows[$i][3];
                                                      $namequery = mysqli_query($conn,"select name,course from student where emailID='$allemails'");
@@ -49,30 +50,19 @@ if(!isset($_SESSION['student']))
                                                      echo($row[1]);
                                                      ?>
                 </p>
-                <h5 class="card-title"><?php echo $rows[$i][0];?></h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                 <button class="btn btn-md">
-                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bell-slash-fill" viewBox="0 0 16 16">
-  						<path d="M5.164 14H15c-1.5-1-2-5.902-2-7 0-.264-.02-.523-.06-.776L5.164 14zm6.288-10.617A4.988 4.988 0 0 0 8.995 2.1a1 1 0 1 0-1.99 0A5.002 5.002 0 0 0 3 7c0 .898-.335 4.342-1.278 6.113l9.73-9.73zM10 15a2 2 0 1 1-4 0h4zm-9.375.625a.53.53 0 0 0 .75.75l14.75-14.75a.53.53 0 0 0-.75-.75L.625 15.625z"/>
-				</svg>
-                 </button>
-				 <button class="btn btn-md">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pen-fill" viewBox="0 0 16 16">
-  				<path d="m13.498.795.149-.149a1.207 1.207 0 1 1 1.707 1.708l-.149.148a1.5 1.5 0 0 1-.059 2.059L4.854 14.854a.5.5 0 0 1-.233.131l-4 1a.5.5 0 0 1-.606-.606l1-4a.5.5 0 0 1 .131-.232l9.642-9.642a.5.5 0 0 0-.642.056L6.854 4.854a.5.5 0 1 1-.708-.708L9.44.854A1.5 1.5 0 0 1 11.5.796a1.5 1.5 0 0 1 1.998-.001z"/>
-				</svg>
-				</button>
+                <h5 class="card-title" id="question"><?php echo $rows[$i][0];?></h5>
+                <p class="card-text">Click to view all answers of this question or if you want to answer it.</p>
+                 <!--
+				 
 				
-				<button class="btn btn-md">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-exclamation-octagon" viewBox="0 0 16 16">
-  				<path d="M4.54.146A.5.5 0 0 1 4.893 0h6.214a.5.5 0 0 1 .353.146l4.394 4.394a.5.5 0 0 1 .146.353v6.214a.5.5 0 0 1-.146.353l-4.394 4.394a.5.5 0 0 1-.353.146H4.893a.5.5 0 0 1-.353-.146L.146 11.46A.5.5 0 0 1 0 11.107V4.893a.5.5 0 0 1 .146-.353L4.54.146zM5.1 1 1 5.1v5.8L5.1 15h5.8l4.1-4.1V5.1L10.9 1H5.1z"/>
- 			    <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z"/>
-				</svg>
-				</button>
+			 -->
         </div>
         </div>
     <?php }?>
     </div>
+    <!-- </div> -->
 </body>
+<script src="js/homefunction.js"></script>
 </html>
 <!--  bell-->
 <!-- <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-up-square-fill" viewBox="0 0 16 16">

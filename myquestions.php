@@ -40,7 +40,7 @@ include("nav.php");
                 <a href="#" class="card-link">Answer this</a>
                 <a href="#" class="card-link">Upvote</a>
                 <a href="#" class="card-link">Report</a>
-        </div>
+            </div>
         </div>
     <?php }?>
     </div>
