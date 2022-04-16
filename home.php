@@ -30,7 +30,7 @@ if(!isset($_SESSION['student']))
  
 </head>
 <body>
-<div class="container mb-4">
+<div id="container" class="container mb-4">
         <h2 class="mt-4"><?php echo $msg;?></h2>
     <?php 
      
@@ -40,7 +40,7 @@ if(!isset($_SESSION['student']))
      //print_r($rows); 
      
      for($i=0;$i<sizeof($rows);$i++){?>
-         <div class="card" style="width: 100%;" >
+         <div id="card" class="card" style="width: 100%;" >
              <div class="card-body">
                 <p class="card-text">Posted by <?php $allemails =  $rows[$i][3];
                                                      $namequery = mysqli_query($conn,"select name,course from student where emailID='$allemails'");
@@ -52,10 +52,8 @@ if(!isset($_SESSION['student']))
                 </p>
                 <h5 class="card-title" id="question"><?php echo $rows[$i][0];?></h5>
                 <p class="card-text">Click to view all answers of this question or if you want to answer it.</p>
-                 <!--
-				 
-				
-			 -->
+                <button onclick="window.location.href='answerquestion.php?question=<?php echo $rows[$i][0];?>'" class="btn btn-md btn-primary">Answer this</button>
+               
         </div>
         </div>
     <?php }?>
@@ -63,6 +61,57 @@ if(!isset($_SESSION['student']))
     <!-- </div> -->
 </body>
 <script src="js/homefunction.js"></script>
+<script>
+
+
+//gotoanswer
+
+ 
+
+
+
+  //get input element
+  let inputfilter = document.getElementById("inputsearch");
+
+  // Add event listener
+  inputfilter.addEventListener("keyup",filter);
+  function filter()
+  {
+    // get value of input
+    let filtervalue = document.getElementById('inputsearch').value.toUpperCase();
+    console.log(filtervalue);
+    //get container
+    let container = document.getElementById("container");
+    // get questions
+    let questions = container.querySelectorAll(".card-title#question");
+    //loop through all question
+    let countcards =0;
+    for(let i=0;i< questions.length;i++)
+    {
+      let cardbody = questions[i].parentNode;
+      if(questions[i].innerHTML.toUpperCase().indexOf(filtervalue)> -1 )
+      {
+        
+        cardbody.parentNode.style.display="";
+
+      }
+      else
+      {
+        cardbody.parentNode.style.display="none";
+        // countcards++;
+        // if(countcards == questions.length)
+        // {
+        //   let parent = document.getElementById('container');
+        //   let text = document.createElement("p");
+        //   text.innerHTML = "No such question found";
+        //   text.style.color="red";
+        //   parent.appendChild(text);
+        //   break;
+        // }
+      }
+    }
+  }
+</script>
 </html>
 <!--  bell-->
 <!-- <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-up-square-fill" viewBox="0 0 16 16">

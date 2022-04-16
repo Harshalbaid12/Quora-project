@@ -35,11 +35,11 @@ include("nav.php");
          <div class="card" style="width: 100%;">
              <div class="card-body">
                 <h5 class="card-title"><?php echo $rows[$i][0];?></h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" class="card-link">Notify me</a>
-                <a href="#" class="card-link">Answer this</a>
-                <a href="#" class="card-link">Upvote</a>
-                <a href="#" class="card-link">Report</a>
+                <p class="card-text">Asked on <?php echo $rows[$i][1];?> &nbsp &nbsp At <?php echo $rows[$i][2];?> hrs</p>
+                 <button class="btn btn-md btn-primary"> Edit Question</button>
+                 <button class="btn btn-md btn-primary"> View Answers </button>
+                 <button class="btn btn-md btn-danger"> Delete Question</button>
+             
             </div>
         </div>
     <?php }?>

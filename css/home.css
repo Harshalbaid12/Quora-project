@@ -2,7 +2,7 @@
     cursor: pointer;
 }
 .card:hover{
-    border: 3px solid rgb(156, 197, 215);
+    border: 2px solid rgb(156, 197, 215);
     
 }
 

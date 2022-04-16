@@ -74,6 +74,7 @@
           <li class="nav-item dropdown ">
             <a class="nav-link active dropdown-toggle" href="#" id="dropdown06" data-bs-toggle="dropdown" aria-expanded="false">My Profile</a>
             <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdown06">
+            <li><a class="dropdown-item" href="profile.php">Profile</a></li>
               <li><a class="dropdown-item" href="myquestions.php">My Questions</a></li>
               <li><a class="dropdown-item" href="myanswers.php">My Answers</a></li>
               <li><a class="dropdown-item" href="logout.php">Logout</a></li>
@@ -81,8 +82,8 @@
           </li>
         </ul>
         <form class="d-flex">
-          <input class="form-control  me-2 " type="text" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-light" type="submit">Search</button>
+          <input  id="inputsearch" class="form-control  me-2 " type="text" placeholder="Search filter Questions" aria-label="Search">
+         
         </form>
       </div>
     </div>
