@@ -68,11 +68,13 @@ if(isset($_POST['submit']))
 <div class="input-group mb-3">
  <input type="text" class="form-control"  value="<?php echo $question?>"  readonly >
  </div>
-  <textarea class="form-control mt-3 mb-3" rows="7"  name="answer" placeholder="start typing your answer here "></textarea>
+  <textarea class="form-control mt-3 mb-3" rows="7"  name="answer" placeholder="start typing your answer here " required></textarea>
 
   <button type="submit" name="submit" value='Submit' class="btn btn-md btn-primary" >Post</button>
 </form>
 
 </div>
 
-
+<script>
+    document.getElementById("inputsearch").style.display="none";
+</script>

@@ -82,7 +82,7 @@
           </li>
         </ul>
         <form class="d-flex">
-          <input  id="inputsearch" class="form-control  me-2 " type="text" placeholder="Search filter Questions" aria-label="Search">
+          <input  id="inputsearch" class="form-control  me-2 " type="text" placeholder="Search/filter Questions" aria-label="Search">
          
         </form>
       </div>

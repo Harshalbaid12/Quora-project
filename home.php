@@ -9,13 +9,48 @@ if(!isset($_SESSION['student']))
   include("db.php");
   include("nav.php");
   //echo "Welcome".$_SESSION['student'];
+  if(isset($_GET['added']))
+  {
+    if($_GET['added'] == true)
+    {
+      echo '<div class="alert alert-success" id="alert" role="alert">
+      Question added successfully
+           </div>';
+    }
+  }
+
+
+
+
   $query = mysqli_query($conn,"select * from question");
   if(mysqli_fetch_row($query) !=0)
   {
-    $msg="All Asked Questions";
+    $msg="";
+    echo "
+    <div class='container mt-4 mb-4'>
+    <div class='alert alert-warning' role='alert'>
+        <h4 class='alert-heading'>Hello User!</h4>
+        <p>Following are the questions asked by students of your college so if you know answer to any of the following question kindly contribute. </p>
+        <hr>
+      <p class='mb-0'>And if you want to ask something about college or ask any query to other students in your college <br> Click the button below to ask aquestion</p>
+      <button id='askquestion' class='btn btn-primary btn-md mt-4 mb-4' onclick='askquestion();' >Ask question</button>
+      
+     </div>
+   </div>        ";
   }
   else{
-    $msg="No question asked till now BE The First to Ask";
+    $msg="";
+    echo "
+      <div class='container mt-4 mb-4'>
+      <div class='alert alert-success' role='alert'>
+          <h4 class='alert-heading'>Welcome But we have no questions !</h4>
+          <p>As this application is being used by all users so there are no question avaialbe to view or answer.But no worries you can be the first one to ask question</p>
+          <hr>
+        <p class='mb-0'>Click on the below  button to ask question to the community and get your queries resolved </p>
+        <button id='askquestion' class='btn btn-primary btn-md mt-4 mb-4' onclick='askquestion();' >Ask question</button>
+        
+       </div>
+     </div>        ";
   }
 
 ?>
@@ -62,11 +97,23 @@ if(!isset($_SESSION['student']))
 </body>
 <script src="js/homefunction.js"></script>
 <script>
+ //askquestion button
+ function askquestion()
+     {
+         window.location.href="askquestion.php";
+     }
 
 
-//gotoanswer
 
- 
+
+    //for alert msg after successfull addition of question
+
+    var alert=document.getElementById("alert");
+    setTimeout(() => {
+        alert.style.display="none";
+    }, 4000);
+
+
 
 
 

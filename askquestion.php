@@ -22,9 +22,9 @@ if(!isset($_SESSION['student']))
 
      if(mysqli_fetch_row($query) !=0)
      {
-        echo '<script language="javascript">
-        alert("Question Already Exist bro , So Kindly check answer for the question and if no answer is provided Sorry but you have to wait for answers ");
-        </script>';;
+        echo '<div class="alert alert-danger" id="alert" role="alert">
+                Question Already Exists!
+                     </div>';
      }
      else{
 
@@ -32,15 +32,13 @@ if(!isset($_SESSION['student']))
          $insert = mysqli_query($conn,"insert into question(question,date,time,emailID) values('$question','$datetime[0]','$datetime[1]','$email')");
          if($insert)
          {
-            echo '<script language="javascript">
-            alert("Your Question was Added Sucessfully");
-            </script>';
-            header("Location:home.php");
+           
+            header("Location:home.php?added=true");
          }
          else{
-            echo '<script language="javascript">
-            alert("Something went wrong Please try again");
-            </script>';
+            echo '<div class="alert alert-dark" id="alert" role="alert">
+                Something went wrong please try again!
+                     </div>';
          }
      }
      
@@ -69,3 +67,13 @@ if(!isset($_SESSION['student']))
 </body>
 
 </html>
+<script>
+    
+    var alert=document.getElementById("alert");
+    setTimeout(() => {
+        alert.style.display="none";
+    }, 4000);
+
+
+    document.getElementById("inputsearch").style.display="none";
+</script>

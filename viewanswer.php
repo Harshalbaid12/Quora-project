@@ -104,6 +104,7 @@ if(!isset($_SESSION['student']))
         </div>
 </div>
 
+<script src="js/tooltip.js"></script>
 <script>
     function gotofunction()
     {
@@ -112,10 +113,7 @@ if(!isset($_SESSION['student']))
         window.location.href='answerquestion.php?question='+question;
     }
 
-    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
-var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
-  return new bootstrap.Tooltip(tooltipTriggerEl)
-})
+    document.getElementById("inputsearch").style.display="none"; 
 </script>
 
 
