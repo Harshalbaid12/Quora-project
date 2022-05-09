@@ -19,7 +19,15 @@ if(!isset($_SESSION['student']))
     }
   }
 
-
+ if(isset($_GET['reportedquestion']))
+ {
+   if($_GET['reportedquestion'] == true)
+   {
+    echo '<div class="alert alert-success" id="alert" role="alert">
+    Your report has been recorded but the question will be visible.<br>Our team will go through the question again and take the necessary action reqiured.
+         </div>';
+   }
+ }
 
 
   $query = mysqli_query($conn,"select * from question");
@@ -69,7 +77,7 @@ if(!isset($_SESSION['student']))
         <h2 class="mt-4"><?php echo $msg;?></h2>
     <?php 
      
-     $query = mysqli_query($conn,"select question,date,time,emailID from question");
+     $query = mysqli_query($conn,"select question,date,time,emailID from question ");
      $rows = mysqli_fetch_all($query);
      
      //print_r($rows); 
@@ -111,7 +119,7 @@ if(!isset($_SESSION['student']))
     var alert=document.getElementById("alert");
     setTimeout(() => {
         alert.style.display="none";
-    }, 4000);
+    }, 8000);
 
 
 

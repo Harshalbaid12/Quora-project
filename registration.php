@@ -29,6 +29,7 @@ if(isset($_POST['submit']))
 
 
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -117,7 +118,7 @@ if(isset($_POST['submit']))
 					  <option>MSc Zoology</option>
 					  <option>Applied Statistics</option>
 					  <option>Geography(General Level)</option>
-					  <option>Mathematics(General Level)</option>
+					  <option>Mathematics(  General Level)</option>
 					  <option>B.Voc. Media and Communication</option>
 					  <option>B.Voc. Digital Art & Animation</option>
 					  <option>B.Voc. Photography & Audio-Video Production</option>

@@ -2,6 +2,7 @@ var check1 = false;
 var check2 = false;
 var check3 = false;
 var check4 = false;
+var check5 = false;
 
 function validatename()
 {
@@ -13,6 +14,7 @@ function validatename()
     text.innerHTML = "Valid Name";
     text.style.color = "green";
     check4 = true;
+    
   }
   else
   {
@@ -20,6 +22,8 @@ function validatename()
     text.style.color = "red";
     check4 = false;
   }
+
+  updateformvalidator();
 }
 
 
@@ -45,6 +49,7 @@ function validateemail() {
   }
   formvalidator();
   loginformvalidator();
+  updateformvalidator();
 }
 
 function validatepassword()
@@ -91,6 +96,16 @@ function validateconfirm()
  formvalidator();
 }
 
+
+function selected()
+{
+  
+  document.getElementById("updatebutton").disabled = false;
+       
+  
+}
+
+
 function formvalidator()
 {
     if(check1 && check2 && check3 && check4)
@@ -111,4 +126,18 @@ function loginformvalidator()
     }
    
 }
+
+function updateformvalidator()
+{
+  
+    if(check1 || check4 )
+    {
+       document.getElementById("updatebutton").disabled = false;
+      
+       
+    }
+
+   
+}
+
 
