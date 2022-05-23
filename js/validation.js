@@ -11,14 +11,14 @@ function validatename()
   var namereg = /^[A-Za-z\s]+$/;
   if(name.match(namereg))
   {
-    text.innerHTML = "Valid Name";
+    text.innerHTML = " ";
     text.style.color = "green";
     check4 = true;
     
   }
   else
   {
-    text.innerHTML = "Please enter valid name";
+    text.innerHTML = "Name Reqiured";
     text.style.color = "red";
     check4 = false;
   }
@@ -35,7 +35,7 @@ function validateemail() {
     var regex = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
   if (mail.match(regex)) 
   {
-    text.innerHTML = "Valid Email id";
+    text.innerHTML = "";
     text.style.color = "green";
     check1 = true;
 
@@ -59,13 +59,13 @@ function validatepassword()
   
   if(password.length >= 7)
   {
-    text.innerHTML = "Valid  Password";
+    text.innerHTML = " ";
     text.style.color = "green";
     check2 =  true;
   }
   else
   {
-    text.innerHTML = "Password must be more than 8 chars" ;
+    text.innerHTML = "Password reqiures atleat 8 characters" ;
     text.style.color = "red";
     check2 = false;
   }

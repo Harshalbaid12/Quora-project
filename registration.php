@@ -60,7 +60,7 @@ if(isset($_POST['submit']))
           <div class="card mb-5 mask d-flex align-items-center h-100 gradient-custom-3" style="border-radius: 20px">
             <div class="card-body mb-0">
               <h2 class="text-uppercase text-center mb-5">
-                Create an account
+              Registration
               </h2>
 
               <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>" method="post">

@@ -7,19 +7,19 @@ $msg="";
  {
  	 $email = $_POST['email'];
   	 $password = $_POST['password'];
-	 $query = "select password from student where emailID='$email'";
+	 $query = "select password from admin where email='$email'";
 	 $queryy = mysqli_query($conn,$query);
 	 if(mysqli_num_rows($queryy) != 0)
 	 {
 		 //echo "chalo email hai teri ";
 		//  $passwordcheck = mysqli_query($conn,$query);
 		 $row = mysqli_fetch_row($queryy);
-		 if(password_verify($password,$row[0]))
+		 if($password === $row[0])
 		 {
 			 //echo "Dono sahi hai tere acha hai";
 			 $msg = "";
-			 $_SESSION['student'] = $email;
-			 header("Location:home.php");
+			 $_SESSION['admin'] = $email;
+			header("Location:admin_control.php");
 		 }
 		 else
 		 {
@@ -68,7 +68,7 @@ $msg="";
           <div class="card mb-5 mask d-flex align-items-center h-100 gradient-custom-3" style="border-radius: 20px">
             <div class="card-body mb-0">
               <h2 class="text-uppercase text-center mb-5">
-                Sign in to your account
+                Admin Login
               </h2>
 
               <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>" method="post">
@@ -95,14 +95,7 @@ $msg="";
 				  
                 </div>
 				<p id="msg" class="text-center"><?php echo $msg;?></p>
-                <p class="text-center text-muted mt-3 mb-0">
-                  Don't have account?
-                  <a href="registration.php" class="fw-bold text-body"><u>Register here</u></a>
-                </p>
-                <p class="text-center text-muted mt-3 mb-0">
-                  Admin ?
-                  <a href="adminlogin.php" class="fw-bold text-body"><u>Login</u></a>
-                </p>
+               
               </form>
             </div>
           </div>

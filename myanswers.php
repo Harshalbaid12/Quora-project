@@ -29,7 +29,7 @@ if(isset($_GET['edited']))
 
 if(isset($_GET['deleted']))
 {
-    if($_GET['deleted'] == true)
+    if($_GET['deleted'] == "true")
     {
         echo '<div class="alert alert-primary" id="alert" role="alert">
         Answer was deleted succesfully!

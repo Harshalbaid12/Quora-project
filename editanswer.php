@@ -17,13 +17,19 @@ if(!isset($_SESSION['student']))
 //check if delete answerparameter is set  for deletion of answer
  if(isset($_GET['deleteanswer']) && isset($_GET['delete']))
  {
-   if(isset($_GET['delete']) ==true)
+   if($_GET['delete'] == "true")
    {
      $deleteanswer = $_GET['deleteanswer'];
-     $query = mysqli_query($conn,"delete from answer where answer = '$deleteanswer'");
+     $prevq = mysqli_query($conn,"select questionId from answer where answer = '$deleteanswer'");
+     $row = mysqli_fetch_row($prevq);
+     $qid = $row[0];
+     
+     $query = mysqli_query($conn,"delete from answer where questionId='$qid' and emailID='$emailID'");
+     
      if($query)
      {
-       header("Location:myanswers.php?deleted=true");
+      header("Location:myanswers.php?deleted=true");
+     
      }
      else
      {
@@ -42,7 +48,7 @@ if(!isset($_SESSION['student']))
   
 if(isset($_GET['redirectedfromanswer']))
 {
-  if($_GET['redirectedfromanswer'] == true)
+  if($_GET['redirectedfromanswer'] == "true")
   {
     echo '<div class="alert alert-danger" id="alert" role="alert">
    You have answered this question previously So you can edit your answer but can\'t answer one question more than once<br> Therefore you are redirected to here if you want to edit  !

@@ -39,7 +39,7 @@
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/style.css">
-    <title>FC Quora for College</title>
+    <title> College Discussion Forum</title>
 </head>
 
 <body>
@@ -51,7 +51,7 @@
   <!-- <div id="content"> -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark" aria-label="Fifth navbar example">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">Quora For College</a>
+      <a class="navbar-brand" href="#"> College Discussion Forum</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample05" aria-controls="navbarsExample05" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -67,14 +67,14 @@
           <li class="nav-item">
             <a class="nav-link active" href="answerquestion.php #container">Answer Question</a>
           </li>
-          <li class="nav-item dropdown ">
+          <!-- <li class="nav-item dropdown ">
             <a class="nav-link active dropdown-toggle" href="#" id="dropdown05" data-bs-toggle="dropdown" aria-expanded="false">Sort</a>
             <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdown05">
               <li><a class="dropdown-item" href="#">Most Answered Questions</a></li>
               <li><a class="dropdown-item" href="#">Least Answered Questions</a></li>
               <li><a class="dropdown-item" href="#">Not Answered Questions</a></li>
             </ul>
-          </li>
+          </li> -->
           <li class="nav-item dropdown ">
             <a class="nav-link active dropdown-toggle" href="#" id="dropdown06" data-bs-toggle="dropdown" aria-expanded="false">My Profile</a>
             <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdown06">
